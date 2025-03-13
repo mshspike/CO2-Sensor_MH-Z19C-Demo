@@ -9,46 +9,34 @@ This project implements a CO2 monitoring system using the MH-Z19C sensor and Ard
 - LCD1602 with I2C adapter
 - 5V Relay Module (1 channel)
 - 5V DC Fan
-- 4 jumper wires for MH-Z19C
-- 4 jumper wires for LCD
-- 3 jumper wires for relay
-- External power supply for fan (if needed)
+- 4S AA battery pack power supply for fan
 
 ## Wiring
 
-### LCD1602 I2C Connection
-| LCD Pin | Arduino Pin |
-|---------|-------------|
-| VCC     | 5V         |
-| GND     | GND        |
-| SDA     | A4         |
-| SCL     | A5         |
-
-![MH-Z19C Wiring Diagram](./images/MH-Z19C%20Wiring.png)
-
-### Relay Connection
-| Relay Pin | Arduino/Power Pin |
-|-----------|------------------|
-| VCC       | 5V              |
-| GND       | GND             |
-| IN        | D4              |
-
-### Fan Connection
-| Fan Wire | Connection      |
-|----------|----------------|
-| Positive | Relay NO (Normally Open) |
-| Negative | Power Supply Ground |
+### Component Connections
+| Component Pin | Arduino/Power Connection |
+|--------------|-------------------------|
+| **MH-Z19C Sensor** |                   |
+| VCC          | 5V                     |
+| GND          | GND                    |
+| TX           | D2 (RX)                |
+| RX           | D3 (TX)                |
+| **LCD1602 I2C** |                     |
+| VCC          | 5V                     |
+| GND          | GND                    |
+| SDA          | A4                     |
+| SCL          | A5                     |
+| **Relay Module** |                    |
+| VCC          | 5V                     |
+| GND          | GND                    |
+| SIGNAL       | D4                     |
+| **Fan** |                             |
+| Positive     | Relay NO (Normally Open) |
+| Negative     | Power Supply Ground    |
 
 Note: Connect power supply positive to relay COM (Common) terminal.
 
-## Pin Connections
-
-| MH-Z19C Pin | Arduino Pin |
-|-------------|-------------|
-| VCC         | 5V          |
-| GND         | GND         |
-| TX          | D2 (RX)     |
-| RX          | D3 (TX)     |
+![MH-Z19C Wiring Diagram](./images/MH-Z19C%20Wiring.png)
 
 ### Hardware Setup
 1. The sensor requires 5V DC power supply
@@ -97,6 +85,10 @@ The LCD display shows:
 4. **Operating Conditions**:
    - Temperature range: 0-50°C
    - Humidity range: 0-95% RH (non-condensing)
+
+5. **Power Supply**:
+   - Use a 5V power supply for the sensor and relay module
+   - Use a 4S AA battery pack power supply for the fan
 
 ## Troubleshooting
 
